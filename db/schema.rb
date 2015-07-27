@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150727153446) do
+ActiveRecord::Schema.define(version: 20150727174358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "nyc_noises", force: :cascade do |t|
     t.integer  "unique_key"
-    t.datetime "created_date"
-    t.datetime "closed_date"
+    t.string   "created_date"
+    t.string   "closed_date"
     t.string   "agency"
     t.string   "complaint_type"
     t.string   "descriptor"
