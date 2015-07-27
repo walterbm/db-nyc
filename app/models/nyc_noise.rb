@@ -6,4 +6,12 @@ class NycNoise< ActiveRecord::Base
     self.longitude.to_f
   end 
 
+  # def hourly_breakout
+
+  # end 
+
+  # def noise_by_type
+
+  # end 
+
 end
