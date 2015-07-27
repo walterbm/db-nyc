@@ -6,9 +6,4 @@ class NycNoise< ActiveRecord::Base
     self.longitude.to_f
   end 
 
-  def self.convert_to_dt
-    self.created_date.gsub(/\/..$/, '2015')
-    self.created
-  end 
-
 end
