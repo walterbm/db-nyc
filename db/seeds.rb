@@ -9,7 +9,7 @@
 
 require 'chronic'
 require 'csv'  
-require 'pry'  
+require 'pry'
 
 CSV.foreach("csv/noise_nyc.csv", :headers => true) do |row|
   keys = row.to_hash.keys.map {|key| key.gsub(' ','_').downcase }
