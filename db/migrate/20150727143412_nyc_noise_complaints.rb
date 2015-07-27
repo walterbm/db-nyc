@@ -12,8 +12,8 @@ class NycNoiseComplaints < ActiveRecord::Migration
       t.string :incident_address
       t.string :city
       t.string :borough
-      t.float :latitude
-      t.float :longitude
+      t.decimal :latitude {:precision=>10, :scale=>6}
+      t.decimal :longitude {:precision=>10, :scale=>6}
       t.string :location
     end
   end
