@@ -6,9 +6,18 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+require 'chronic'
 require 'csv'  
 require 'pry'  
 
 CSV.foreach("csv/noise_nyc.csv", :headers => true) do |row|
-  NycNoise.create!(row.to_hash)
+  keys = row.to_hash.keys.map {|key| key.gsub(' ','_').downcase }
+  values = row.to_hash.values.map.with_index do |s, i| 
+      (1..2).include?(i) ? Chronic.parse(s) : s
+    end 
+  hash = Hash[keys.zip values]
+  NycNoise.create(hash)
 end
+
+ 
