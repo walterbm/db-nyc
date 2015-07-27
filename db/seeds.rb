@@ -10,8 +10,5 @@ require 'csv'
 require 'pry'  
 
 CSV.foreach("csv/noise_nyc.csv", :headers => true) do |row|
-  keys = row.to_hash.keys.map {|key| key.gsub(' ','_').downcase }
-  values = row.to_hash.values
-  hash = Hash[keys.zip values]
-  NycNoise.create(hash)
+  NycNoise.create!(row.to_hash)
 end
