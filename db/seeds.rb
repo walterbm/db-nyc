@@ -6,8 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-require 'csv'    
+require 'csv'  
+require 'pry'  
 
 CSV.foreach("csv/noise_nyc.csv", :headers => true) do |row|
-  NycNoiseComplaint.create!(row.to_hash)
+  keys = row.to_hash.keys.map {|key| key.gsub(' ','_').downcase }
+  values = row.to_hash.values
+  hash = Hash[keys.zip values]
+  NycNoise.create(hash)
 end
