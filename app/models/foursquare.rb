@@ -1,15 +1,13 @@
 class Foursquare
 
+  FOURSQUARE_CLIENT_ID = ENV["foursquare_client_id"]
+  FOURSQUARE_SECRET = ENV["foursquare_secret"]
+
   def self.request(request_url)
     base_url = "https://api.foursquare.com/v2/"
     api_request = base_url+request_url
     api_response = open(api_request).read
     JSON.parse(api_response)["response"]
-  end
-
-  def self.test
-    puts FOURSQUARE_CLIENT_ID
-    puts FOURSQUARE_SECRET
   end
 
   def self.venues
