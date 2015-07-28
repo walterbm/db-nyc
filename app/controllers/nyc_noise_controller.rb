@@ -1,7 +1,7 @@
 class NycNoiseController < ApplicationController
 
   def index
-    render text: "hello"
+    # render text: "hello"
   end
 
 

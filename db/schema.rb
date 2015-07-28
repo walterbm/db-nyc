@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20150727174358) do
 
   create_table "nyc_noises", force: :cascade do |t|
     t.integer  "unique_key"
-    t.string "created_date"
-    t.string "closed_date"
+    t.string   "created_date"
+    t.string   "closed_date"
     t.string   "agency"
     t.string   "complaint_type"
     t.string   "descriptor"
