@@ -13,17 +13,19 @@ class NycNoise< ActiveRecord::Base
     self.longitude.to_f
   end 
 
+  def self.coordinates
+    self.select(:latitude, :longitude)
+  end
+
+
   # # def self.hourly_breakout
   # # result = self.request("URL_HERE")
   # # created_date: "2015-07-26 13:50:00 -0400"
   # NycNoise.having()
-
-  
   # end 
 
   # def noise_by_type
   # result = self.request("URL_HERE")
-
   # end 
 
 end
