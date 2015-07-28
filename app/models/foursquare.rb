@@ -10,9 +10,9 @@ class Foursquare
     JSON.parse(api_response)["response"]
   end
 
-  def self.venues
+  def self.all
     result = self.request("venues/explore?near=New York NY&client_id=#{FOURSQUARE_CLIENT_ID}&client_secret=#{FOURSQUARE_SECRET}&v=20130815&limit=50")
-    venue = Struct.new(:id, :lat, :lng, :checkins)
+    venue = Struct.new(:id, :latitude, :longitude, :count)
     result["groups"][0]["items"].collect do |location|
       venue_hash = location["venue"]
       venue.new(venue_hash["id"],venue_hash["location"]["lat"],venue_hash["location"]["lng"],venue_hash["stats"]["checkinsCount"])

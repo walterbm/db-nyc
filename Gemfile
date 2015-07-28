@@ -51,7 +51,6 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'simplecov'
   gem 'database_cleaner'
-  gem 'sqlite3'
   gem 'pg'
   gem 'pry'
   gem 'guard-rspec', require: false
@@ -59,7 +58,6 @@ group :test, :development do
 end
 
 group :production do
-  gem 'pg'
   gem 'google-analytics-rails'
   gem 'rails_12factor'
 end

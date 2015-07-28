@@ -11,12 +11,15 @@ require 'chronic'
 require 'csv'  
 require 'pry'
 
+# original = CSV.read('csv/noise_nyc.csv', { headers: true, return_headers: true })
+# original.delete("Closed Date")
+
 CSV.foreach("csv/noise_nyc.csv", :headers => true) do |row|
   keys = row.to_hash.keys.map {|key| key.gsub(' ','_').downcase }
-  values = row.to_hash.values.map.with_index do |s, i| 
-      (1..2).include?(i) ? Chronic.parse(s) : s
-    end 
-  hash = Hash[keys.zip values]
+  values = row.to_hash.map do |k, value| 
+    (k == "created_date" || k == "closed_date") ? Chronic.parse(value) : value
+  end 
+  hash = Hash[keys.zip(values)]
   NycNoise.create(hash)
 end
 
