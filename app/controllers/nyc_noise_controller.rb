@@ -1,8 +1,7 @@
 class NycNoiseController < ApplicationController
 
   def index
-    @nyc_noises = NycNoise.all
-    # render text: "hello"
+    @noise_complaints = NycNoise.coordinates
   end
 
 
