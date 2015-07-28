@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   root "nyc_noise#index"
 
+  post '/' => "nyc_noise#catch"
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

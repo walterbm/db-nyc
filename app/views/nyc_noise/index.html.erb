@@ -82,4 +82,15 @@
   function changeOpacity() {
     heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
   }
+
+  $( "#slider" ).on( "slidechange", function( event, ui ) {
+    $.ajax({
+      url: '/',
+      method: 'post',
+      data: {"hour": ui.value},
+      headers: {'X-CSRF-Token': '<%= form_authenticity_token.to_s %>'},
+      success: initialize
+    });
+  });
+
 </script>

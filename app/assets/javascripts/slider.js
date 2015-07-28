@@ -1,3 +1,8 @@
-$( "#slider" ).on( "slidechange", function( event, ui ) {
-  //get a new map
-} );
+// $(function(){
+
+//   $( "#slider" ).on( "slidechange", function( event, ui ) {
+//     alert("moved the slider");
+//   });
+
+// });
+
