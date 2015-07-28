@@ -5,6 +5,14 @@
   <button onclick="changeOpacity()">Change opacity</button>
 </div> -->
 
+<p>
+  <label for="hour">Time of the day (in Hourly increments):</label>
+  <input type="text" id="hour" readonly style="border:0; color:#f6931f; font-weight:bold;">
+</p>
+ 
+<div id="slider"></div>
+
+
 <div id="map-canvas"></div>
 
 <script>
@@ -25,6 +33,8 @@
     createData();
     var mapOptions = {
       zoom: 13,
+      radius: 20,
+      opacity: .2,
       center: new google.maps.LatLng(40.705329, -74.0139696),
       mapTypeId: google.maps.MapTypeId.SATELLITE
     };

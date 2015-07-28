@@ -3,10 +3,32 @@
 <head>
   <title>DbNyc</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
-<%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization' %>
+  <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <%= analytics_init if Rails.env.production? %>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <style>#slider { margin: 25px 150px;} </style>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+   <script>
+  $(function() {
+    $( "#slider" ).slider({
+      value:12,
+      min: 0,
+      max: 24,
+      step: 1,
+      slide: function( event, ui ) {
+        $( "#hour" ).val( ui.value + ":00" );
+      }
+    });
+    $( "#hour" ).val( $( "#slider" ).slider( "value" + ':00') );
+  });
+  </script>
+
+
+
 </head>
 <body>
 
