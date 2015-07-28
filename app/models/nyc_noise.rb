@@ -13,8 +13,11 @@ class NycNoise< ActiveRecord::Base
     self.longitude.to_f
   end 
 
-  # def self.hourly_breakout
-  # result = self.request("URL_HERE")
+  # # def self.hourly_breakout
+  # # result = self.request("URL_HERE")
+  # # created_date: "2015-07-26 13:50:00 -0400"
+  # NycNoise.having()
+
   
   # end 
 
