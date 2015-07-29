@@ -11,16 +11,53 @@ require 'chronic'
 require 'csv'  
 require 'pry'
 
-# original = CSV.read('csv/noise_nyc.csv', { headers: true, return_headers: true })
-# original.delete("Closed Date")
 
-CSV.foreach("csv/noise_nyc.csv", :headers => true) do |row|
-  keys = row.to_hash.keys.map {|key| key.gsub(' ','_').downcase }
-  values = row.to_hash.map do |k, value| 
-    (k == "created_date" || k == "closed_date") ? Chronic.parse(value) : value
-  end 
-  hash = Hash[keys.zip(values)]
-  NycNoise.create(hash)
+ROWS_TO_KEEP = [:created_date,:closed_date,:complaint_type,:descriptor,:city,:borough,:latitude,:longitude]
+
+def aggregate_coordinates
+
 end
+
+def grab_9k
+  SmarterCSV.process('csv/new_noise_data.csv', {:chunk_size => 9001}) do |chunk|
+     chunk.each do |h|
+        unless coordinates_empty?(h)
+          NycNoise.create(convert(h))
+        end
+     end
+     puts "SAVED 9001 RECORDS INTO THE DATABASE!!!"
+     break
+   end
+end
+
+# Not Ready! Working on Aggregation
+# def clean_data_for_db
+#   SmarterCSV.process('20150729_all_noise_data_.csv', {:chunk_size => 100}) do |chunk|
+#      chunk.each do |h|
+#         unless coordinates_empty?(h)
+#           NycNoise.create(convert(h))
+#         end
+#      end
+#    end
+# end
+
+def remove_unused_col(raw_row)
+  raw_row.delete_if do |key, value|
+    !ROWS_TO_KEEP.include?(key)
+  end
+end
+
+def convert(raw_row)
+  selected_hash = remove_unused_col(raw_row)
+  selected_hash[:created_date] = Chronic.parse(selected_hash[:created_date])
+  selected_hash[:closed_date] = Chronic.parse(selected_hash[:closed_date])
+  selected_hash
+end
+
+def coordinates_empty?(raw_row)
+  (raw_row[:latitude].nil? && raw_row[:longitude].nil?)
+end
+
+grab_9k
 
  

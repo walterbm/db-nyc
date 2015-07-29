@@ -19,10 +19,17 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# Used to store API keys in the system ENV 
 gem 'figaro'
+
+# Used to convert unsually formated plain-text dates into dateTime format
 gem 'chronic'
 
+# Used to interact with the Yelp API
 gem 'yelp', require: 'yelp'
+    
+# Used to batch process raw CSV files from NYC Open Data
+gem 'smarter_csv'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
