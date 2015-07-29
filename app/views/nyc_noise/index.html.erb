@@ -71,7 +71,7 @@
       'rgba(127, 0, 63, 1)',
       'rgba(191, 0, 31, 1)',
       'rgba(255, 0, 0, 1)'
-    ]
+    ];
     heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
   }
 
@@ -85,12 +85,27 @@
 
   $( "#slider" ).on( "slidechange", function( event, ui ) {
     $.ajax({
-      url: '/',
-      method: 'post',
-      data: {"hour": ui.value},
-      headers: {'X-CSRF-Token': '<%= form_authenticity_token.to_s %>'},
-      success: initialize
+      url: '/'+ui.value,
+      method: 'get',
+      success: function(data){
+        var newNoiseData = []
+        data.forEach(function(dataPoint){
+          newNoiseData.push(new google.maps.LatLng(dataPoint.latitude,dataPoint.longitude))
+        });
+
+        var pointArray = new google.maps.MVCArray(newNoiseData);
+
+        heatmap.setMap(null)
+
+        heatmap = new google.maps.visualization.HeatmapLayer({
+          data: pointArray
+        });
+
+        heatmap.setMap(map);
+
+      }
     });
+
   });
 
 </script>

@@ -1,12 +1,12 @@
 class NycNoiseController < ApplicationController
 
   def index
-    @noise_complaints = NycNoise.per_hour(0)
+    @noise_complaints = NycNoise.coordinates
   end
 
-  def catch
+  def hourly
     @noise_complaints = NycNoise.per_hour(params[:hour])
-    render :index
+    render json: @noise_complaints
   end
 
 
