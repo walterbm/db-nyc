@@ -3,11 +3,6 @@
   <input type="text" id="hour" readonly style="border:0; color:#f6931f; font-size:18pt; font-weight:bold;">
 </div>
 
-<p>
-  <label for="hour">Time of the day (in Hourly increments):</label>
-  <input type="text" id="hour" readonly style="border:0; color:#f6931f; font-weight:bold;">
-</p>
-
 <div id="slider"></div>
 
 <div id="map-canvas"></div>
@@ -15,7 +10,7 @@
 <script>
   google.maps.event.addDomListener(window, 'load', initialize);
 
-  var map, pointarray, heatmap;
+  var map, heatmap;
   var noise_per_hour = {};
 
   function createLayers() {
