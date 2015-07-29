@@ -19,13 +19,14 @@ def aggregate_coordinates
 end
 
 def grab_9k
-  SmarterCSV.process('csv/20150729_all_noise_data_raw.csv', {:chunk_size => 9001}) do |chunk|
+  SmarterCSV.process('csv/new_noise_data.csv', {:chunk_size => 9001}) do |chunk|
      chunk.each do |h|
         unless coordinates_empty?(h)
           NycNoise.create(convert(h))
         end
      end
      puts "SAVED 9001 RECORDS INTO THE DATABASE!!!"
+     break
    end
 end
 
