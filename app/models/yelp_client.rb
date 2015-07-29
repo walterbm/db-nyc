@@ -20,10 +20,10 @@ class YelpClient
 
   def search(keyword, arr)
     result = self.client.search('New York', {term: keyword}).businesses
-    business = Struct.new(:id, :lat, :lng)
+    business = Struct.new(:id, :latitude, :longitude, :weight)
     result.each do |b|
       if (!(/#{keyword}/.match(b.id)))
-        arr << business.new(b.id, b.location.coordinate.latitude, b.location.coordinate.longitude)
+        arr << business.new(b.id, b.location.coordinate.latitude, b.location.coordinate.longitude, 3)
       end
     end
   end
