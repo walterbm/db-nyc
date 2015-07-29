@@ -1,7 +1,7 @@
 class YelpClient
   attr_reader :client
 
-  KEYWORDS = ['noisy', 'loud']
+  KEYWORDS = ['noisy', 'loud', 'loudest', 'ear-splitting']
 
   def initialize
     @client = Yelp::Client.new(
@@ -13,10 +13,18 @@ class YelpClient
   end
 
   def businesses
-    result = self.client.search('New York', {term: 'noisy'}).businesses
+    KEYWORDS.each_with_object([]) { |keyword, arr|
+      search(keyword, arr)
+    }
+  end
+
+  def search(keyword, arr)
+    result = self.client.search('New York', {term: keyword}).businesses
     business = Struct.new(:id, :lat, :lng)
-    result.collect do |b|
-      business.new(b.id, b.location.coordinate.latitude, b.location.coordinate.longitude)
+    result.each do |b|
+      if (!(/#{keyword}/.match(b.id)))
+        arr << business.new(b.id, b.location.coordinate.latitude, b.location.coordinate.longitude)
+      end
     end
   end
 end
