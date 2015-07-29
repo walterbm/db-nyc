@@ -14,6 +14,5 @@ class NycNoise< ActiveRecord::Base
       self.per_hour(hour)
     end
   end
-
 end
 
