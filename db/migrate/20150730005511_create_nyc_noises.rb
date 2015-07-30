@@ -9,7 +9,7 @@ class CreateNycNoises < ActiveRecord::Migration
       t.string :borough
       t.decimal :latitude, {:precision=>10, :scale=>6}
       t.decimal :longitude, {:precision=>10, :scale=>6}
-      t.timestamps null: false
+      t.integer :weight, default: 1
     end
   end
 end
