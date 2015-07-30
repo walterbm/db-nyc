@@ -5,30 +5,42 @@
 
 <div id="slider"></div>
 
+<div id="panel">
+  <button onclick="lawn care">Toggle Heatmap</button>
+  <button onclick="ice cream">Change gradient</button>
+</div>
+
 <div id="map-canvas"></div>
 
 <script>
   google.maps.event.addDomListener(window, 'load', initialize);
 
   var map, heatmap;
-  var noise_per_hour = {};
+  var type_layers = {};
+  var current_type;
 
-  function createLayers() {
+  function createTypeLayers() {
     var hour, data, pointArray;
 
-    <% @twenty_four.each.with_index do |h, index| %>
-      hour = <%= index %>;
-      data = [];
+    <% @twenty_four_types.each do |type, hours| %>
+      var noise_per_hour = {};
 
-      <% h.each do |noise| %>
-        data.push(new google.maps.LatLng(<%= noise.latitude.to_f %>, <%= noise.longitude.to_f %>));
+      <% hours.each.with_index do |h, index| %>
+        hour = <%= index %>;
+        data = [];
+
+        <% h.each do |noise| %>
+          data.push(new google.maps.LatLng(<%= noise.latitude.to_f %>, <%= noise.longitude.to_f %>));
+        <% end %>
+        pointArray = new google.maps.MVCArray(data);
+        noise_per_hour[hour] = new google.maps.visualization.HeatmapLayer({
+          data: pointArray,
+          opacity: .9,
+          radius: 25
+        });
       <% end %>
-      pointArray = new google.maps.MVCArray(data);
-      noise_per_hour[hour] = new google.maps.visualization.HeatmapLayer({
-        data: pointArray,
-        opacity: .9,
-        radius: 25
-      });
+
+      type_layers['<%= type %>'] = noise_per_hour
     <% end %>
   }
 
@@ -49,11 +61,14 @@
     map = new google.maps.Map(document.getElementById('map-canvas'),
     mapOptions);
 
-    createLayers();
+    createTypeLayers();
 
-    heatmap = noise_per_hour[12];
+    current_type = 'Noise:  lawn care equipment (NCL)';
+    heatmap = type_layers[current_type][12];
+    //other_heatmap = type_layers['Noise, Ice Cream Truck (NR4)'][12];
 
     heatmap.setMap(map);
+    //other_heatmap.setMap(map);
   }
 
   function toggleHeatmap() {
@@ -62,8 +77,8 @@
 
   $( "#slider" ).on( "slide", function( event, ui ) {
     heatmap.setMap(null);
-    if (!!noise_per_hour[ui.value]) {
-      heatmap = noise_per_hour[ui.value];
+    if (!!type_layers[current_type][ui.value]) {
+      heatmap = type_layers[current_type][ui.value];
       heatmap.setMap(map);
     }
   });
