@@ -1,4 +1,4 @@
-class Foursquare
+class FoursquareWrapper
 
   FOURSQUARE_CLIENT_ID = ENV["foursquare_client_id"]
   FOURSQUARE_SECRET = ENV["foursquare_secret"]
@@ -28,7 +28,7 @@ class Foursquare
   end
   
   def self.linear_transform_weight(venue)
-    2 + (venue.weight-min) * (6-2) / (max-min)
+    1 + (venue.weight-min) * (3-1) / (max-min)
   end
 
   private
