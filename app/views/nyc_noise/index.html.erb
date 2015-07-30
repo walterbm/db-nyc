@@ -7,6 +7,7 @@
 
 <div id="map-canvas"></div>
 
+
 <div id="panel">
 <div class="dropup">
   <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Noise Complaint Type
@@ -17,8 +18,6 @@
     <li>Fakity Fake</li>
   </ul>
 </div>
-  <button onclick="lawn care">Toggle Heatmap</button>
-  <button onclick="ice cream">Ice Cream</button>
 </div>
 
 <script>
@@ -26,6 +25,8 @@
   var map, heatmap;
   var type_layers = {};
   var current_type;
+
+  var active_types = [];
 
   function createTypeLayers() {
     var hour, data, pointArray;
@@ -40,6 +41,7 @@
         <% h.each do |noise| %>
           data.push(new google.maps.LatLng(<%= noise.latitude.to_f %>, <%= noise.longitude.to_f %>));
         <% end %>
+
         pointArray = new google.maps.MVCArray(data);
         noise_per_hour[hour] = new google.maps.visualization.HeatmapLayer({
           data: pointArray,
@@ -49,6 +51,8 @@
       <% end %>
 
       type_layers['<%= type %>'] = noise_per_hour
+
+      $('#panel').append('<button>' + '<%= type %>' + '</button>');
     <% end %>
   }
 
@@ -73,10 +77,8 @@
 
     current_type = 'Noise:  lawn care equipment (NCL)';
     heatmap = type_layers[current_type][12];
-    //other_heatmap = type_layers['Noise, Ice Cream Truck (NR4)'][12];
 
     heatmap.setMap(map);
-    //other_heatmap.setMap(map);
   }
 
   function toggleHeatmap() {

@@ -25,7 +25,19 @@ class NycNoise< ActiveRecord::Base
     self.select(:latitude, :longitude, :descriptor).where('EXTRACT(HOUR FROM created_date) = ? AND descriptor = ?', hour, descriptor)
   end
 
+<<<<<<< HEAD
   def self.descriptors
     self.select(:descriptor).group(:descriptor).count.keys
+=======
+  def self.descriptors_twenty_four
+    self.select(:descriptor).group(:descriptor).each_with_object({}) { |descriptor, hash|
+      slug = self.to_slug(descriptor.descriptor)
+      hash[slug] = self.twenty_four_by_description(descriptor.descriptor)
+    }
+>>>>>>> add slugs and toggle buttons
+  end
+
+  def self.to_slug(name)
+    name.gsub("Noise:", "").gsub(/\(...\)/, "").strip
   end
 end
