@@ -28,7 +28,7 @@ class Foursquare
   end
   
   def self.linear_transform_weight(venue)
-    2 + (venue.weight-min) * (10-2) / (max-min)
+    2 + (venue.weight-min) * (6-2) / (max-min)
   end
 
   private
