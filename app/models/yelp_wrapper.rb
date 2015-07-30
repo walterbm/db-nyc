@@ -11,6 +11,7 @@ class YelpWrapper
         token: ENV['yelp_token'],
         token_secret: ENV['yelp_token_secret']
       })
+    all
   end
 
   def all
