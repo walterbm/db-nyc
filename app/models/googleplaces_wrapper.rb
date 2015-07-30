@@ -17,5 +17,13 @@ class GoogleplacesWrapper
     end
   end
 
+  @@all = self.all
+
+  def self.all_hourly
+    (0..23).collect do |hour|
+      @@all
+    end
+  end
+
 end
 

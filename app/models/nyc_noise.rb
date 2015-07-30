@@ -25,9 +25,7 @@ class NycNoise< ActiveRecord::Base
     self.select(:latitude, :longitude, :descriptor).where('EXTRACT(HOUR FROM created_date) = ? AND descriptor = ?', hour, descriptor)
   end
 
-  def self.descriptors_twenty_four
-    self.select(:descriptor).group(:descriptor).each_with_object({}) { |descriptor, hash|
-      hash[descriptor.descriptor] = self.twenty_four_by_description(descriptor.descriptor)
-    }
+  def self.descriptors
+    self.select(:descriptor).group(:descriptor).count.keys
   end
 end

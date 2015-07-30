@@ -14,9 +14,15 @@ class YelpWrapper
   end
 
   def all
-    KEYWORDS.each_with_object([]) { |keyword, arr|
+    @all = KEYWORDS.each_with_object([]) { |keyword, arr|
       search(keyword, arr)
     }
+  end
+
+  def all_hourly
+    (0..23).collect do |hour|
+      @all
+    end
   end
 
   def search(keyword, arr)
