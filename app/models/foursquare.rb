@@ -10,22 +10,39 @@ class Foursquare
     JSON.parse(api_response)["response"]
   end
 
-  def self.all
+  def self.checkins
     result = self.request("venues/explore?near=New York NY&client_id=#{FOURSQUARE_CLIENT_ID}&client_secret=#{FOURSQUARE_SECRET}&v=20130815&limit=50")
-    venue = Struct.new(:id, :latitude, :longitude, :weight)
+    venue = Struct.new(:latitude, :longitude, :weight)
     result["groups"][0]["items"].collect do |location|
       venue_hash = location["venue"]
-      venue.new(venue_hash["id"],venue_hash["location"]["lat"],venue_hash["location"]["lng"],venue_hash["stats"]["checkinsCount"])
+      venue.new(venue_hash["location"]["lat"],venue_hash["location"]["lng"],venue_hash["stats"]["checkinsCount"])
     end
   end
 
-  def self.trending
-    result = self.request("venues/trending?ll=40.7,-74&client_id=#{FOURSQUARE_CLIENT_ID}&client_secret=#{FOURSQUARE_SECRET}&v=20130815")
-    binding.pry
+  @@checkins = self.checkins
+
+  def self.all
+    @@checkins.each do |venue|
+      venue.weight = linear_transform_weight(venue)
+    end
+  end
+  
+  def self.linear_transform_weight(venue)
+    2 + (venue.weight-min) * (10-2) / (max-min)
   end
 
-  def self.checkins(venue_id)
-    result = self.request("venues/#{venue_id}/herenow?&client_id=#{FOURSQUARE_CLIENT_ID}&client_secret=#{FOURSQUARE_SECRET}&v=20130815")
-  end
+  private
+
+    def self.max
+      @@checkins.max_by do |venue|
+        venue.weight
+      end.weight
+    end
+
+    def self.min
+      @@checkins.min_by do |venue|
+        venue.weight
+      end.weight
+    end
 
 end
