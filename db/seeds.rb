@@ -9,7 +9,6 @@
 
 require 'chronic'
 require 'csv'  
-require 'pry'
 
 
 ROWS_TO_KEEP = [:created_date,:closed_date,:complaint_type,:descriptor,:city,:borough,:latitude,:longitude]

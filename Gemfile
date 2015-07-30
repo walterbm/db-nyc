@@ -60,7 +60,6 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'simplecov'
   gem 'database_cleaner'
-  gem 'pg'
   gem 'pry'
   gem 'guard-rspec', require: false
   gem 'thin'
@@ -71,6 +70,7 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'pg'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
 gem 'airbrake'

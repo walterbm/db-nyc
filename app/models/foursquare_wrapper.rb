@@ -5,8 +5,8 @@ class FoursquareWrapper
 
   def self.request(request_url)
     base_url = "https://api.foursquare.com/v2/"
-    api_request = base_url+request_url
-    api_response = open(api_request).read
+    api_request = URI(URI.encode(base_url+request_url))
+    api_response = Net::HTTP.get(api_request)
     JSON.parse(api_response)["response"]
   end
 
