@@ -9,11 +9,11 @@ class GoogleplacesWrapper
     JSON.parse(api_response)["results"]
   end
 
-  def self.hospitals
+  def self.all
     result = self.request("nearbysearch/json?" + "location=40.7731295,-73.957734" + "&radius=19000" + "&types=hospital" + "&key=" + GP_KEY)
     hospital = Struct.new(:latitude, :longitude, :weight)
     result.collect do |location|
-      hospital.new(location["geometry"]["location"]["lat"],location["geometry"]["location"]["lat"],9)
+      hospital.new(location["geometry"]["location"]["lat"],location["geometry"]["location"]["lng"],4)
     end
   end
 

@@ -1,7 +1,7 @@
 class NycNoiseController < ApplicationController
 
   def index
-    @twenty_four = NycNoise.twenty_four
+    @twenty_four = Aggregator.all_twenty_four
   end
 
 end
