@@ -19,6 +19,22 @@ class FoursquareWrapper
     end
   end
 
+  def self.linear_transform_weight(venue)
+    1 + (venue.weight-min) * (3-1) / (max-min)
+  end
+
+  def self.max
+    @@checkins.max_by do |venue|
+      venue.weight
+    end.weight
+  end
+
+  def self.min
+    @@checkins.min_by do |venue|
+      venue.weight
+    end.weight
+  end
+
   @@checkins = self.checkins
 
   def self.all
@@ -26,23 +42,13 @@ class FoursquareWrapper
       venue.weight = linear_transform_weight(venue)
     end
   end
-  
-  def self.linear_transform_weight(venue)
-    1 + (venue.weight-min) * (3-1) / (max-min)
+
+  @@all = self.all
+
+  def self.all_hourly
+    (0..23).collect do |hour|
+      @@all
+    end
   end
-
-  private
-
-    def self.max
-      @@checkins.max_by do |venue|
-        venue.weight
-      end.weight
-    end
-
-    def self.min
-      @@checkins.min_by do |venue|
-        venue.weight
-      end.weight
-    end
-
+  
 end
