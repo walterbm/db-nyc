@@ -13,33 +13,41 @@ require 'pry'
 
 
 ROWS_TO_KEEP = [:created_date,:closed_date,:complaint_type,:descriptor,:city,:borough,:latitude,:longitude]
+RAW_CSV_FILES = ["311_Service_Requests_from_2015_to_082015.csv"]
+  # "311_Service_Requests_from_2010_to_2011.csv",
+  # "311_Service_Requests_from_2011_to_2012.csv",
+  # "311_Service_Requests_from_2012_to_2013.csv",
+  # "311_Service_Requests_from_2013_to_2014.csv",
+  # "311_Service_Requests_from_2014_to_2015.csv",
+  # ]
 
-def aggregate_coordinates
-
+def grab_all
+  RAW_CSV_FILES.each do |file_path|
+    clean_and_save_data(file_path)
+  end
 end
 
-def grab_9k
-  SmarterCSV.process('csv/new_noise_data.csv', {:chunk_size => 9001}) do |chunk|
-     chunk.each do |h|
-        unless coordinates_empty?(h)
-          NycNoise.create(convert(h))
-        end
-     end
-     puts "SAVED 9001 RECORDS INTO THE DATABASE!!!"
-     break
+def grab_9999
+  row_counter = 0
+  SmarterCSV.process('csv/new_noise_data.csv') do |array|
+    row_hash = array.first
+    unless coordinates_empty?(row_hash)
+      row_counter == 9999 ? break : row_counter += 1
+      NycNoise.create(convert(row_hash))
+    end
+  end
+  puts "saved #{row_counter} records into database!"
+end
+
+def clean_and_save_data(file_path)
+  SmarterCSV.process("csv/#{file_path}") do |array|
+      row_hash = array.first
+      unless coordinates_empty?(row_hash)
+        NycNoise.create(convert(row_hash))
+      end
    end
+   puts "saved #{file_path} into database!"
 end
-
-# Not Ready! Working on Aggregation
-# def clean_data_for_db
-#   SmarterCSV.process('20150729_all_noise_data_.csv', {:chunk_size => 100}) do |chunk|
-#      chunk.each do |h|
-#         unless coordinates_empty?(h)
-#           NycNoise.create(convert(h))
-#         end
-#      end
-#    end
-# end
 
 def remove_unused_col(raw_row)
   raw_row.delete_if do |key, value|
@@ -58,6 +66,6 @@ def coordinates_empty?(raw_row)
   (raw_row[:latitude].nil? && raw_row[:longitude].nil?)
 end
 
-grab_9k
+grab_9999
 
  
