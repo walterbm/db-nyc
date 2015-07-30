@@ -29,7 +29,7 @@ end
 
 def grab_9999
   row_counter = 0
-  SmarterCSV.process('csv/new_noise_data.csv') do |array|
+  SmarterCSV.process('csv/311_Service_Requests_from_2015_to_082015.csv') do |array|
     row_hash = array.first
     unless coordinates_empty?(row_hash)
       row_counter == 9999 ? break : row_counter += 1
