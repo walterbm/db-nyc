@@ -1190,6 +1190,7 @@ form label.error {
         display: block;
         width: 132px;
         margin-top: 34px;
+        margin-left: 34px;
     }
 
 .header.sticky .logo a {
