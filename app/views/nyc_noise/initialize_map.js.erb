@@ -1,0 +1,38 @@
+initialize()
+
+function initData() {
+  var hour, data, pointArray;
+  var noise_per_hour = {};
+
+    <% @twenty_four.each.with_index do |h, index| %>
+      hour = <%= index %>;
+      data = [];
+
+      <% h.each do |noise| %>
+        data.push(new google.maps.LatLng(<%= noise.latitude.to_f %>, <%= noise.longitude.to_f %>));
+      <% end %>
+
+
+    pointArray = new google.maps.MVCArray(data);
+
+
+    noise_per_hour[hour] = new google.maps.visualization.HeatmapLayer({
+      data: pointArray,
+      opacity: .9,
+      radius: 25
+    });
+  <% end %>
+  type_layers['All Data'] = noise_per_hour;
+}
+
+function initialize() {
+  debugger;
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+  mapOptions);
+
+  initData();
+
+  heatmap = type_layers[current_type][12];
+
+  heatmap.setMap(map);
+}
