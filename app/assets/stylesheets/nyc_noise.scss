@@ -4,14 +4,14 @@ html, body, #map-canvas {
   padding: 0;
 }
 
+
+
 #panel {
   position: relative;
-  top: 5px;
+  top: -100px;
   margin-left: 20px;
   z-index: 5;
-  background-color: #fff;
   padding: 5px;
-  border: 1px solid #999;
 }
 
 /*
@@ -23,7 +23,6 @@ JS bound to its name.
 */
 
 #panel, .panel {
-  font-family: 'Roboto','sans-serif';
   line-height: 30px;
   padding-left: 10px;
 }

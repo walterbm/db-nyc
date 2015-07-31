@@ -12,12 +12,48 @@
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
-<body>
-<div class="container">
-    <div class="page-header">
-      <h2 id="navbar">Decibel - Mapping Noise in NYC</h2>
-    </div>
-</div>
+<body class="full-intro">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container">
+
+          <!-- logo -->
+          <div class="logo">
+              <a href="home.html">
+                <img class="l-black" src="assets/logo-black.png" />
+              </a>
+          </div>
+          <!--End logo-->
+
+          <!-- Navigation Menu -->
+                <nav class='navigation'>
+                    <ul>
+                        <li> 
+                         <button class="btn btn-lg btn-color-b">Toggle Noise Sources<i class="fa fa-cog right"></i></button>
+                        </li>
+                        <li>
+                            <a href="home.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="home.html">About</a>
+                        </li>
+                        <li>
+                            <a href="home.html">Team</a>
+                            <!-- Nav Dropdown -->
+                            <ul class="nav-dropdown">
+                                <li class=""><a href="shop-2col.html">Walter Beller-Morales</a></li>
+                                <li class=""><a href="shop-3col.html">Elizabeth Lovero</a></li>
+                                <li class=""><a href="shop-4col.html">Heather Petrow</a></li>
+                            </ul>
+                            <!-- End Nav Dropdown -->
+                        </li>
+                    </ul>
+                </nav>
+                <!--End Navigation Menu -->
+      </div>
+    </header>
+    <!-- END HEADER -->
 
 <%= yield %>
 
