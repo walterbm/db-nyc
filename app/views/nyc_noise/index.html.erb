@@ -18,46 +18,48 @@
 </div>
 
 <script>
-  google.maps.event.addDomListener(window, 'load', initialize);
+  $(function() {
+    google.maps.event.addDomListener(window, 'load', initialize);
 
-  function dropdownLabels() {
-    $('#panel > .dropup > ul').append('<li>' + 'All Data' + '</li>');
-    <% @complaint_types.each do |type| %>
-      $('#panel > .dropup > ul').append('<li>' + '<%= type %>' + '</li>');
-    <% end %>
-  }
-
-  function initData() {
-    var hour, data, pointArray;
-    var noise_per_hour = {};
-
-    <% @all_twenty_four.each.with_index do |h, index| %>
-      hour = <%= index %>;
-      data = [];
-
-      <% h.each do |noise| %>
-        data.push(new google.maps.LatLng(<%= noise.latitude.to_f %>, <%= noise.longitude.to_f %>));
+    function dropdownLabels() {
+      $('#panel > .dropup > ul').append('<li>' + 'All Data' + '</li>');
+      <% @complaint_types.each do |type| %>
+        $('#panel > .dropup > ul').append('<li>' + '<%= type %>' + '</li>');
       <% end %>
+    }
 
-      pointArray = new google.maps.MVCArray(data);
-      noise_per_hour[hour] = new google.maps.visualization.HeatmapLayer({
-        data: pointArray,
-        opacity: .9,
-        radius: 25
-      });
-    <% end %>
-    type_layers['All Data'] = noise_per_hour;
-  }
+    function initData() {
+      var hour, data, pointArray;
+      var noise_per_hour = {};
 
-  function initialize() {
-    map = new google.maps.Map(document.getElementById('map-canvas'),
-    mapOptions);
+      <% @all_twenty_four.each.with_index do |h, index| %>
+        hour = <%= index %>;
+        data = [];
 
-    dropdownLabels();
-    initData();
+        <% h.each do |noise| %>
+          data.push(new google.maps.LatLng(<%= noise.latitude.to_f %>, <%= noise.longitude.to_f %>));
+        <% end %>
 
-    heatmap = type_layers[current_type][12];
+        pointArray = new google.maps.MVCArray(data);
+        noise_per_hour[hour] = new google.maps.visualization.HeatmapLayer({
+          data: pointArray,
+          opacity: .9,
+          radius: 25
+        });
+      <% end %>
+      type_layers['All Data'] = noise_per_hour;
+    }
 
-    heatmap.setMap(map);
-  }
+    function initialize() {
+      map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+      dropdownLabels();
+      initData();
+
+      heatmap = type_layers[current_type][12];
+
+      heatmap.setMap(map);
+    }
+  });
 </script>
