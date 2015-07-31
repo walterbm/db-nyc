@@ -4,7 +4,6 @@ class YelpWrapper
   KEYWORDS = ['noisy', 'loud', 'loudest', 'ear-splitting']
 
   def initialize
-    binding.pry
     @client = Yelp::Client.new(
       { consumer_key: ENV['yelp_consumer_key'],
         consumer_secret: ENV['yelp_consumer_secret'],
