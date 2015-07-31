@@ -7,20 +7,36 @@
 <!-- MAP SECTION -->
 <div id="map-canvas"></div>
 
-  <!-- BOX SECTION -->  
+  <!-- MAP BOX SECTION -->  
   <div id="panel">
       <div class="row">
             <div class="col-md-4">
                 <!-- NOISE TYPES -->
+
                 <div class="dropup">
-                    <button class="btn btn-lg btn-black" type="button" data-toggle="dropdown">
-                        Noise Complaint Type
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <!-- APPEND NOISE TYPES HERE -->
-                    </ul>
-                </div>
+                  <button class="btn btn-lg btn-black dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Noise Types <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                      <li><a href="#">Separated link</a></li>
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                      <li><a href="#">Separated link</a></li>
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                      <li><a href="#">Separated link</a></li>
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                      <li><a href="#">Separated link</a></li>
+                  </ul>
+              </div>
+
                  <!-- END NOISE TYPES -->  
             </div>
             <div class="col-md-8">
@@ -29,7 +45,7 @@
             </div>        
       </div>  
   </div>
-  <!-- END DARK BOX SECTION -->
+  <!-- MAP BOX SECTION -->
 
 </div>
 <!-- END MAP SECTION -->
@@ -53,34 +69,34 @@
                         <img src="assets/ear_plug.png" alt="" />
                     </div>
                     <div class="col-md-4 mb-30">
-                        <h4>NYC IS LOUD</h4>
+                        <h4>Our Algorithym</h4>
                         <div class="spacer-15"></div>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.</p>
+                        <p>NYC Noise Map takes input from several sources to generate a weighted algorithym to assess the volume of the metropolis.</p>
                         <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur?</p>
                     </div>
 
                     <!-- Skills -->
                     <div class="col-md-4">
                         <div class="skillbar" data-percent="55%">
-                            <div class="skillbar-title">Web design</div>
+                            <div class="skillbar-title">311 noise complaints</div>
                             <div class="skill-bar-percent">55%</div>
                             <div class="skillbar-bar"></div>
                         </div>
 
                         <div class="skillbar" data-percent="80%">
-                            <div class="skillbar-title">development</div>
+                            <div class="skillbar-title">Ambulance traffic</div>
                             <div class="skill-bar-percent">80%</div>
                             <div class="skillbar-bar"></div>
                         </div>
 
                         <div class="skillbar" data-percent="40%">
-                            <div class="skillbar-title">Photography</div>
+                            <div class="skillbar-title">Foursquare check-ins</div>
                             <div class="skill-bar-percent">40%</div>
                             <div class="skillbar-bar"></div>
                         </div>
 
                         <div class="skillbar" data-percent="70%">
-                            <div class="skillbar-title">branding</div>
+                            <div class="skillbar-title">Yelp reviews</div>
                             <div class="skill-bar-percent">70%</div>
                             <div class="skillbar-bar"></div>
                         </div>
@@ -106,7 +122,7 @@
                         <div class="item">
                             <div class="team-item nf-col-padding">
                                 <div class="team-item-img">
-                                    <img src="img/team/people-1.jpg" alt="" />
+                                    <img src="assets/people-1.jpg" alt="" />
                                     <div class="team-item-detail">
                                         <div class="team-item-detail-inner light-color">
                                             <h5>Mitchell KAPPOS</h5>
@@ -131,7 +147,7 @@
                         <div class="item">
                             <div class="team-item nf-col-padding">
                                 <div class="team-item-img">
-                                    <img src="img/team/people-2.jpg" alt="" />
+                                    <img src="assets/people-2.jpg" alt="" />
                                     <div class="team-item-detail">
                                         <div class="team-item-detail-inner light-color">
                                             <h5>Leonardo da Vinci</h5>
@@ -156,7 +172,7 @@
                         <div class="item">
                             <div class="team-item nf-col-padding">
                                 <div class="team-item-img">
-                                    <img src="img/team/people-3.jpg" alt="" />
+                                    <img src="assets/people-3.jpg" alt="" />
                                     <div class="team-item-detail">
                                         <div class="team-item-detail-inner light-color">
                                             <h5>John Doe</h5>
@@ -178,31 +194,6 @@
                             </div>
                         </div>
 
-                        <div class="item">
-                            <div class="team-item nf-col-padding">
-                                <div class="team-item-img">
-                                    <img src="img/team/people-4.jpg" alt="" />
-                                    <div class="team-item-detail">
-                                        <div class="team-item-detail-inner light-color">
-                                            <h5>Michael Lee</h5>
-                                            <p>Similique sunt culpa qui officia deserunt mollitia animi dolorum fuga.</p>
-                                            <ul class="social">
-                                                <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                                <li><a href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                                <li><a href="https://www.dribbble.com/" target="_blank"><i class="fa fa-dribbble"></i></a></li>
-                                                <li><a href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a></li>
-                                                <li><a href="https://www.behance.net/" target="_blank"><i class="fa fa-behance"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="team-item-info">
-                                    <h5>Michael Lee</h5>
-                                    <p class="">Photographer</p>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
                 <!--End Team Carousel --->
@@ -215,11 +206,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-sm-8">
-                        <h4 class="">Donec sodales sagittis magna bibendum sodales Sed consequat?</h4>
+                        <h4 class="">Interested in more New York City facts and figures?</h4>
 
                     </div>
                     <div class="col-md-4 col-sm-4">
-                        <a class="btn btn-md btn-white float-right float-none-xs">Download</a>
+                        <a class="btn btn-md btn-white float-none-xs">Open Data NYC</a>
 
                     </div>
                 </div>
