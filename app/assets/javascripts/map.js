@@ -7,6 +7,7 @@ var styling = [{"featureType":"water","elementType":"geometry","stylers":[{"colo
 var mapOptions = {
   zoom: 11,
   streetViewControl: false, 
+  draggable: false, 
   panControl: true, 
   styles: styling,
   mapTypeControl: false, 
