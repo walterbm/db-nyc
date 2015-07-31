@@ -63,3 +63,10 @@ JS bound to its name.
 .gauge-loader:not(:required) {
   background: rgb(32,32,32);
 }
+
+.dropdown-menu {
+  height: auto;
+  max-height: 500px;
+  overflow-x: hidden;
+  scroll: true;
+}
