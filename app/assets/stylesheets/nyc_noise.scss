@@ -49,3 +49,12 @@ JS bound to its name.
 #panel i, .panel i {
   font-size: 12px;
 }
+
+#spinner{
+  position: absolute;
+  top: 30%;
+  right: 47%
+}
+.gauge-loader:not(:required) {
+  background: red;
+}
