@@ -26,19 +26,16 @@ function setType(type) {
 
 function setHour(hour) {
   var tmpHeatMap = heatmap;
-  var tmpHour = parseInt($("#hour").val());
 
   hour = Math.round(hour);
 
-  if (tmpHour !== hour) {
-    $("#hour").val(hour + ":00");
+  $("#hour").val(hour + ":00");
 
-    if (!!type_layers[current_type][hour]) {
-      heatmap = type_layers[current_type][hour];
-      heatmap.setMap(map);
-    }
-    setTimeout(function(){tmpHeatMap.setMap(null);},100)
+  if (!!type_layers[current_type][hour]) {
+    heatmap = type_layers[current_type][hour];
+    heatmap.setMap(map);
   }
+  setTimeout(function(){tmpHeatMap.setMap(null);}, 100);
 }
 
 $(function() {
@@ -48,7 +45,9 @@ $(function() {
     max: 23,
     step: 0.1,
     slide: function( event, ui ) {
-      setHour(ui.value);
+      if (parseInt($("#hour").val()) !== Math.round(ui.value)) {
+        setHour(ui.value);
+      }
     }
   });
   $( "#hour" ).val( $( "#slider" ).slider( "value" ) + ':00');
