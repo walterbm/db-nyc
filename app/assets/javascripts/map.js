@@ -6,9 +6,9 @@ var styling = [{"featureType":"water","elementType":"geometry","stylers":[{"colo
 
 var mapOptions = {
   zoom: 11,
-  streetViewControl: false, 
-  draggable: false, 
-  panControl: true, 
+  streetViewControl: false,
+  draggable: false,
+  panControl: true,
   styles: styling,
   mapTypeControl: false,
   center: new google.maps.LatLng(40.7731295,-73.957734),
@@ -35,10 +35,13 @@ function setHour(hour) {
     heatmap = type_layers[current_type][hour];
     heatmap.setMap(map);
   }
-  setTimeout(function(){tmpHeatMap.setMap(null);}, 100);
+  setTimeout(function(){tmpHeatMap.setMap(null);}, 80);
 }
 
 $(function() {
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+  mapOptions);
+
   $( "#slider" ).slider({
     value: 12,
     min: 0,

@@ -1,4 +1,4 @@
-initialize()
+initialize();
 
 function initData() {
   var hour, data, pointArray;
@@ -26,13 +26,7 @@ function initData() {
 }
 
 function initialize() {
-  debugger;
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-  mapOptions);
-
   initData();
-
   heatmap = type_layers[current_type][12];
-
   heatmap.setMap(map);
 }
