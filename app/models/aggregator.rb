@@ -14,6 +14,8 @@ class Aggregator
   def self.twenty_four_layer(layer)
     if @@time_independent_data.has_key?(layer)
       @@time_independent_data[layer]
+    elsif layer == "All_Data"
+      NycNoise.twenty_four
     else
       NycNoise.twenty_four_by_description(layer)
     end
