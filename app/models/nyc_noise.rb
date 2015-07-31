@@ -28,4 +28,8 @@ class NycNoise< ActiveRecord::Base
   def self.descriptors
     self.select(:descriptor).group(:descriptor).count.keys
   end
+
+  def self.to_slug(name)
+    name.gsub("Noise:", "").gsub(/\(...\)/, "").strip
+  end
 end
