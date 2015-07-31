@@ -222,15 +222,14 @@
         </section>
         <!-- End Action Box Section -->
 
-
-
 <script>
+
   $(function() {
 
     function dropdownLabels() {
-      $('#panel > .dropup > ul').append('<li>' + 'All Data' + '</li>');
+      $('.dropdown-menu').append('<li>' + 'All Data' + '</li>');
       <% @complaint_types.each do |type| %>
-        $('#panel > .dropup > ul').append('<li>' + '<%= type %>' + '</li>');
+        $('.dropdown-menu').append('<li>' + '<%= type %>' + '</li>');
       <% end %>
     }
 
@@ -244,6 +243,5 @@
         });
 
     });
-
     
 </script>
