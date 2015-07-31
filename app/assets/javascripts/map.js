@@ -7,8 +7,8 @@ var styling = [{"featureType":"water","elementType":"geometry","stylers":[{"colo
 var mapOptions = {
   zoom: 11,
   streetViewControl: false, 
-  draggable: true, 
-  panControl: true,
+  draggable: false, 
+  panControl: true, 
   styles: styling,
   mapTypeControl: false,
   center: new google.maps.LatLng(40.7731295,-73.957734),
