@@ -12,12 +12,11 @@ require 'csv'
 
 
 ROWS_TO_KEEP = [:created_date,:closed_date,:complaint_type,:descriptor,:city,:borough,:latitude,:longitude]
-RAW_CSV_FILES = ["311_Service_Requests_from_2015_to_082015.csv"]
+RAW_CSV_FILES = ["311_Service_Requests_from_2014_to_2015.csv","311_Service_Requests_from_2015_to_082015.csv"]
   # "311_Service_Requests_from_2010_to_2011.csv",
   # "311_Service_Requests_from_2011_to_2012.csv",
   # "311_Service_Requests_from_2012_to_2013.csv",
-  # "311_Service_Requests_from_2013_to_2014.csv",
-  # "311_Service_Requests_from_2014_to_2015.csv",
+  # "311_Service_Requests_from_2013_to_2014.csv"
   # ]
 
 def grab_all
@@ -65,6 +64,6 @@ def coordinates_empty?(raw_row)
   (raw_row[:latitude].nil? && raw_row[:longitude].nil?)
 end
 
-grab_9999
+grab_all
 
  
