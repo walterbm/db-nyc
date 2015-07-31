@@ -2,25 +2,41 @@
 <!-- MAP SECTION -->
 <div id="map-canvas"></div>
 
-<div id="panel">
-    <div id="slider"></div>
-    <label for="hour" style="font-size:16pt;">Time of day (in hourly increments):</label>
-    <input type="text" id="hour" readonly style="border:0; color:#f6931f; font-size:18pt; font-weight:bold;">
+  <!-- BOX SECTION -->  
+  <div id="panel">
+      <div class="row">
+            <div class="col-md-4">
+                <!-- NOISE TYPES -->
+                <div class="dropup">
+                    <button class="btn btn-lg btn-black" type="button" data-toggle="dropdown">
+                        Noise Complaint Type
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <!-- APPEND NOISE TYPES HERE -->
+                    </ul>
+                </div>
+                 <!-- END NOISE TYPES -->  
+            </div>        
+      </div>  
+
+      <div class="row">
+            <div class="col-md-4 mb-30">
+                <h4><label for="hour">Time of day (in hours):</label></h4>
+                <input type="text" id="hour" readonly style="border:0; color:#1951B6; font-size:18pt; font-weight:bold;">
+            </div>
+            <div class="col-md-8 mb-30">
+                 <div id="slider"></div>
+            </div>
+      </div>
+  </div>
+  <!-- END DARK BOX SECTION -->
+
 </div>
 <!-- END MAP SECTION -->
 
 <!-- OLD PANEL SECTION -->
-
-<div id="panel">
-    <div class="dropup">
-      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Noise Complaint Type
-      <span class="caret"></span></button>
-      <ul class="dropdown-menu">
-      </ul>
-    </div>
     <div id = "desc"></div>
-  </div>
-
 <!-- END OLD PANEL SECTION -->
 
  <!-- Team Slider Section -->
