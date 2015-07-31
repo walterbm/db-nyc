@@ -852,7 +852,7 @@ body .ui-tooltip {
 /* Component containers
 ----------------------------------*/
 jui .ui-widget {
-	font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+/*	font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;*/
 	font-size: 1.1em;
 }
 jui .ui-widget .ui-widget {
@@ -862,8 +862,8 @@ jui .ui-widget input,
 jui .ui-widget select,
 jui .ui-widget textarea,
 jui .ui-widget button {
-	font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
-	font-size: 1em;
+/*	font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+	font-size: 1em;*/
 }
 jui .ui-widget-content {
 	border: 1px solid #dddddd;
