@@ -7,10 +7,10 @@ var styling = [{"featureType":"water","elementType":"geometry","stylers":[{"colo
 var mapOptions = {
   zoom: 11,
   streetViewControl: false, 
-  draggable: false, 
-  panControl: true, 
+  draggable: true, 
+  panControl: true,
   styles: styling,
-  mapTypeControl: false, 
+  mapTypeControl: false,
   center: new google.maps.LatLng(40.7731295,-73.957734),
   mapTypeId: google.maps.MapTypeId.ROADMAP
 };
@@ -25,28 +25,32 @@ function setType(type) {
 }
 
 function setHour(hour) {
-  heatmap.setMap(null);
+  var tmpHeatMap = heatmap;
+
+  hour = Math.round(hour);
+
+  $("#hour").val(hour + ":00");
+
   if (!!type_layers[current_type][hour]) {
     heatmap = type_layers[current_type][hour];
     heatmap.setMap(map);
   }
+  setTimeout(function(){tmpHeatMap.setMap(null);}, 100);
 }
 
 $(function() {
   $( "#slider" ).slider({
-    value:12,
+    value: 12,
     min: 0,
     max: 23,
-    step: 1,
+    step: 0.1,
     slide: function( event, ui ) {
-      $( "#hour" ).val( ui.value + ":00" );
+      if (parseInt($("#hour").val()) !== Math.round(ui.value)) {
+        setHour(ui.value);
+      }
     }
   });
   $( "#hour" ).val( $( "#slider" ).slider( "value" ) + ':00');
-
-  $( "#slider" ).on( "slide", function( event, ui ) {
-    setHour(ui.value);
-  });
 
   $(".dropdown-menu").on("click", "li", function(e) {
     setType($(e.target).text());

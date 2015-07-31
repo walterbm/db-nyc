@@ -1,7 +1,6 @@
 class Aggregator
 
-  @@time_independent_data = {}
-  # {"googleplaces" => GoogleplacesWrapper.all_hourly, "foursquare" => FoursquareWrapper.all_hourly, "yelp" => YelpWrapper.new.all_hourly}
+  @@time_independent_data = {}; #{"googleplaces" => GoogleplacesWrapper.all_hourly, "foursquare" => FoursquareWrapper.all_hourly, "yelp" => YelpWrapper.new.all_hourly}
 
   def self.descriptors
     NycNoise.descriptors.concat(@@time_independent_data.keys)
