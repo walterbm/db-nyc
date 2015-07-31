@@ -8,7 +8,10 @@
   <%= csrf_meta_tags %>
   <%= analytics_init if Rails.env.production? %>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <style>#slider { margin: 25px 150px;} </style>
+  <style>#slider { margin: 25px 150px; border: 1px solid #000000;
+    background: #323232 50% 50% repeat-x;
+    font-weight: normal;
+    color: #ffffff;} </style>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
@@ -30,14 +33,11 @@
           <!-- Navigation Menu -->
                 <nav class='navigation'>
                     <ul>
-                        <li> 
-                         <button class="btn btn-lg btn-color-b">Toggle Noise Sources<i class="fa fa-cog right"></i></button>
-                        </li>
                         <li>
                             <a href="home.html">Home</a>
                         </li>
                         <li>
-                            <a href="home.html">About</a>
+                            <a href="#about">About</a>
                         </li>
                         <li>
                             <a href="home.html">Team</a>

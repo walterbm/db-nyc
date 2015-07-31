@@ -1,15 +1,26 @@
 html, body, #map-canvas {
-  height: 90%;
+  height: 100%;
   margin: 0;
   padding: 0;
 }
 
+input[type="text"]
+{
+    background: transparent;
+    border: none;
+    font-family: 'Raleway', sans-serif;
+    font-size: 15;
+    font-weight: 600;
+    font-color: #ffffff;
+    
 
+}
 
 #panel {
   position: relative;
-  top: -100px;
+  top: -75px;
   margin-left: 20px;
+  margin-right: -120px;
   z-index: 5;
   padding: 5px;
 }
