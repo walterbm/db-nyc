@@ -6,9 +6,10 @@ var styling = [{"featureType":"water","elementType":"geometry","stylers":[{"colo
 
 var mapOptions = {
   zoom: 11,
-  streetViewControl: false,
-  draggable: false,
-  panControl: true,
+  streetViewControl: false, 
+  draggable: true, 
+  scrollwheel: false,
+  panControl: true, 
   styles: styling,
   mapTypeControl: false,
   center: new google.maps.LatLng(40.7731295,-73.957734),
@@ -70,4 +71,14 @@ $(function() {
       setHour($('#slider').slider("value"));
     }
   });
+
+   $(function(){
+
+    $(".dropdown-menu").on('click', 'li a', function(){
+      $(".btn:first-child").text($(this).text());
+      $(".btn:first-child").val($(this).text());
+   });
+
+  });
+
 });

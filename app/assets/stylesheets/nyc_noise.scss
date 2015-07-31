@@ -12,13 +12,17 @@ input[type="text"]
     font-size: 15;
     font-weight: 600;
     font-color: #ffffff;
-    
-
 }
+
+li, #dropdown-menu{
+  padding: 5px;
+  text-align: center;
+}
+
 
 #panel {
   position: relative;
-  top: -75px;
+  top: -85px;
   margin-left: 20px;
   margin-right: -120px;
   z-index: 5;
