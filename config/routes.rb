@@ -3,9 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   root "nyc_noise#index"
-
-  # get '/map/:layer' => "nyc_noise#layer"
-
+  get "/initialize" => "nyc_noise#initialize_map"
   get '/descriptor' => "nyc_noise#descriptor"
 
 
