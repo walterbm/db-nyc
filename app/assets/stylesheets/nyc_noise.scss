@@ -57,8 +57,9 @@ JS bound to its name.
 #spinner{
   position: absolute;
   top: 30%;
-  right: 47%
+  right: 47%;
+  z-index: 5;
 }
 .gauge-loader:not(:required) {
-  background: red;
+  background: rgb(32,32,32);
 }

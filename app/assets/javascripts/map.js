@@ -60,6 +60,7 @@ $(function() {
     setType($(e.target).text());
 
     if (!type_layers[current_type]) {
+      $("#spinner").fadeIn("slow");
       $.ajax({
         url: '/descriptor',
         method: 'GET',
