@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root "nyc_noise#index"
 
-  get '/:hour' => "nyc_noise#hourly"
+  get '/map/:layer' => "nyc_noise#layer"
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
