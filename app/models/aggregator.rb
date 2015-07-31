@@ -12,7 +12,7 @@ class Aggregator
     allhash = NycNoise.descriptors.each_with_object({}) do |descriptor, hash|
       hash[descriptor] = NycNoise.twenty_four_by_description(descriptor)
     end
-    #allhash.merge(@@time_independent_data)
+    allhash.merge(@@time_independent_data)
   end
 
   def self.descriptors
@@ -27,7 +27,7 @@ class Aggregator
     if @@time_independent_data.has_key?(layer)
       @@time_independent_data[layer]
     else
-      {layer => NycNoise.twenty_four_by_description(layer)}
+      NycNoise.twenty_four_by_description(layer)
     end
   end
 

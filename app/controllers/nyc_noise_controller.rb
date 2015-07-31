@@ -13,7 +13,8 @@ class NycNoiseController < ApplicationController
 
   def descriptor
     @descriptor = params[:descriptor]
-    @twenty_four = NycNoise.twenty_four_by_description(@descriptor)
+    @twenty_four = Aggregator.twenty_four_layer(@descriptor)
+    #@twenty_four = NycNoise.twenty_four_by_description(@descriptor)
     respond_to do |format|
       format.js
     end

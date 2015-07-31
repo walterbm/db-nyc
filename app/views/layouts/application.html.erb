@@ -11,24 +11,6 @@
   <style>#slider { margin: 25px 150px;} </style>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
-   <script>
-  $(function() {
-    $( "#slider" ).slider({
-      value:12,
-      min: 0,
-      max: 23,
-      step: 1,
-      slide: function( event, ui ) {
-        $( "#hour" ).val( ui.value + ":00" );
-      }
-    });
-    $( "#hour" ).val( $( "#slider" ).slider( "value" + ':00') );
-  });
-  </script>
-
-
-
 </head>
 <body>
 <div class="container">

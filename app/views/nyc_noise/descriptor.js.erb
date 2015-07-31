@@ -1,20 +1,10 @@
-var descriptor = '<%= @descriptor %>';
-current_type = descriptor;
+setType('<%= @descriptor %>');
 
-$('#desc').html(descriptor);
+createLayers();
 
-if (!type_layers[descriptor]) {
-  layer(current_type);
-}
+setHour($('#slider').slider("value"));
 
-heatmap.setMap(null);
-
-if (!!type_layers[current_type][$('#slider').slider("value")]) {
-  heatmap = type_layers[current_type][$('#slider').slider("value")];
-  heatmap.setMap(map);
-}
-
-function layer(desc) {
+function createLayers() {
   var hour, data, pointArray;
   var noise_per_hour = {};
 
@@ -34,5 +24,5 @@ function layer(desc) {
     });
   <% end %>
 
-  type_layers[desc] = noise_per_hour;
+  type_layers[current_type] = noise_per_hour;
 }
