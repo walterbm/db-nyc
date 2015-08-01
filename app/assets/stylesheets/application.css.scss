@@ -11,17 +11,9 @@
  * file per style scope.
  *
  *= require style
- *= require bootstrap
- *= require font-awesome
- *= require ionicons
- *= require jPushMenu
- *= require animate
+ *= require bootstrap.min
  *= require jquery-ui
  *= require_tree .
  *= require_self
- //= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
- //= depend_on_asset "bootstrap/glyphicons-halflings-regular.woff"
- //= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
- //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
  */
 /* Some Style from the Bootstrap Default Theme */
