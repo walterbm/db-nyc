@@ -10,29 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= jquery-1.11.2.min
-//= jquery-ui.min
-//= jquery.easing
-//= bootstrap.min
-//= jquery.flexslider
-//= background-check.min
-//= jquery.fitvids
-//= jquery.viewportchecker
-//= jquery.stellar.min
-//= wow.min
-//= jquery.colorbox-min
-//= owl.carousel.min
-//= isotope.pkgd.min
-//= masonry.pkgd.min
-//= imagesloaded.pkgd.min
-//= jPushMenu
-//= jquery.fs.tipper.min
-//= mediaelement-and-player.min
-//= jquery.validate.min
-//= theme
-//= navigation
-//= map
-//= contact-form
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap

@@ -26,7 +26,7 @@ class NycNoise< ActiveRecord::Base
   end
 
   def self.descriptors
-    self.select(:descriptor).group(:descriptor).count.keys
+    self.uniq.pluck(:descriptor)
   end
 
   def self.to_slug(name)
