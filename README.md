@@ -2,39 +2,50 @@
 
 ## Description
 
-Add a short description of your app.
+Db NYC is a visualization of the noise pollution in New York City created using Ruby on Rails. The app maps the location of 311 noise complaints, emergency services, social check-ins, and social venue reviews to create a dynamic heat-map of noise in the city broken down over a 24 hour period. 
 
 ## Screenshots
 
-Add some spiffy screenshots of your app here.
+![dB NYC homepage](screenshots/decibel-nyc-homepage.png "Home page for dB NYC showing the heat-map produced by aggregating all the data")
+Home page for dB NYC showing the heat-map produced by aggregating all the data
+
+![dB NYC menu](screenshots/decibel-nyc-menu.png "The heat-map can be dynamically re-drawn by selecting noise types and time of day")
+The heat-map can be dynamically re-drawn by selecting noise types and time of day
+
 
 ## Background
 
-Why did you want to make this app? What was your development process
-like?
+Inspired by the NYC Open Data program and the [Human Wasteland](http://jennz0r.github.io/wasteland/#) project. 
 
 ## Features
 
-Bullet point some of the key features of your app here.
++ Dynamic map generation using data sourced from NYC Open Data, Google Places API, Foursquare API, and the Yelp API.
++ Heat-map is created using the Google Maps API.
++ Manipulates a Postgres database with over 200k rows of data.
++ Bootstrap for responsive and modular design.
 
 ## Usage
 
-How do users use your app?
+Visit [decibel-nyc](https://decibel-nyc.herokuapp.com/) to try-out the app. Users can filter the heat-map based on time of day and specific noise type
 
 ## Development/Contribution
 
-Explain how people can contribute to your app. How should they write tests?
-Any things in particular you'd like to see in pull requests?
+Please feel free to contribute to the project. 
 
 ## Future
 
-What features are you currently working on? Only mention things that you
-actually are implementing. No pie-in-the-sky-never-gonna-happen stuff.
+Currently the app full data-set is restrained by Heroku database limitations.  
 
-## Author
+## Developers
 
-Link to your blog, twitter, etc!
+Made with &hearts; by // Flatiron School Students:
+
+- [Liz Lovero](https://github.com/lizlove)
+
+- [Heather Petrow](https://github.com/hpetrow)
+
+- [Walter Beller-Morales](https://github.com/walterbm)
 
 ## License
 
-Db Nyc is MIT Licensed. See LICENSE for details.
+Db NYC is MIT Licensed. See LICENSE for details.
