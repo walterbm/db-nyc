@@ -11,9 +11,4 @@ class NycNoiseController < ApplicationController
     @twenty_four = Aggregator.twenty_four_layer(@descriptor)
   end
 
-  def initialize_map
-    @descriptor = params[:descriptor]
-    @twenty_four = Aggregator.twenty_four_layer(@descriptor)
-  end
-
 end
