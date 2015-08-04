@@ -10,7 +10,7 @@ Db NYC is a visualization of the noise pollution in New York City. The app was c
 Home page for dB NYC showing the heat-map produced by aggregating all the available data.
 
 ![dB NYC menu](screenshots/decibel-nyc-menu.png "The heat-map can be dynamically re-drawn by selecting noise types and time of day")
-The noise "heat-map! can be dynamically re-drawn by selecting specific noise types and time of day
+The noise heat-map can be dynamically re-drawn by selecting specific noise types and time of day
 
 
 ## Background
